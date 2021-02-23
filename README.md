@@ -1,1 +1,1 @@
-:)
+The markdown part of prettier.js
