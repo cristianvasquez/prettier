@@ -89,13 +89,13 @@ function load(plugins, pluginSearchDirs) {
   );
 
   const externalPlugins = [
-    ...uniqBy(
-      [...externalManualLoadPluginInfos, ...externalAutoLoadPluginInfos],
-      "requirePath"
-    ).map((externalPluginInfo) => ({
-      name: externalPluginInfo.name,
-      ...eval("require")(externalPluginInfo.requirePath),
-    })),
+    // ...uniqBy(
+    //   [...externalManualLoadPluginInfos, ...externalAutoLoadPluginInfos],
+    //   "requirePath"
+    // ).map((externalPluginInfo) => ({
+    //   name: externalPluginInfo.name,
+    //   ...eval("require")(externalPluginInfo.requirePath),
+    // })),
     ...externalPluginInstances,
   ];
 

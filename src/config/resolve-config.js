@@ -18,9 +18,9 @@ const getExplorerMemoized = mem(
       transform: (result) => {
         if (result && result.config) {
           if (typeof result.config === "string") {
-            const dir = path.dirname(result.filepath);
-            const modulePath = resolve(result.config, { paths: [dir] });
-            result.config = eval("require")(modulePath);
+            // const dir = path.dirname(result.filepath);
+            // const modulePath = resolve(result.config, { paths: [dir] });
+            // result.config = eval("require")(modulePath);
           }
 
           if (typeof result.config !== "object") {

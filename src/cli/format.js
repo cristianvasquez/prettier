@@ -162,35 +162,35 @@ function format(context, input, opt) {
 
   /* istanbul ignore next */
   if (context.argv["debug-benchmark"]) {
-    let benchmark;
-    try {
-      benchmark = eval("require")("benchmark");
-    } catch (err) {
-      context.logger.debug(
-        "'--debug-benchmark' requires the 'benchmark' package to be installed."
-      );
-      process.exit(2);
-    }
-    context.logger.debug(
-      "'--debug-benchmark' option found, measuring formatWithCursor with 'benchmark' module."
-    );
-    const suite = new benchmark.Suite();
-    suite
-      .add("format", () => {
-        prettier.formatWithCursor(input, opt);
-      })
-      .on("cycle", (event) => {
-        const results = {
-          benchmark: String(event.target),
-          hz: event.target.hz,
-          ms: event.target.times.cycle * 1000,
-        };
-        context.logger.debug(
-          "'--debug-benchmark' measurements for formatWithCursor: " +
-            JSON.stringify(results, null, 2)
-        );
-      })
-      .run({ async: false });
+    // let benchmark;
+    // try {
+    //   benchmark = eval("require")("benchmark");
+    // } catch (err) {
+    //   context.logger.debug(
+    //     "'--debug-benchmark' requires the 'benchmark' package to be installed."
+    //   );
+    //   process.exit(2);
+    // }
+    // context.logger.debug(
+    //   "'--debug-benchmark' option found, measuring formatWithCursor with 'benchmark' module."
+    // );
+    // const suite = new benchmark.Suite();
+    // suite
+    //   .add("format", () => {
+    //     prettier.formatWithCursor(input, opt);
+    //   })
+    //   .on("cycle", (event) => {
+    //     const results = {
+    //       benchmark: String(event.target),
+    //       hz: event.target.hz,
+    //       ms: event.target.times.cycle * 1000,
+    //     };
+    //     context.logger.debug(
+    //       "'--debug-benchmark' measurements for formatWithCursor: " +
+    //         JSON.stringify(results, null, 2)
+    //     );
+    //   })
+    //   .run({ async: false });
   } else if (context.argv["debug-repeat"] > 0) {
     const repeat = context.argv["debug-repeat"];
     context.logger.debug(
